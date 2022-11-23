@@ -19,7 +19,7 @@ exports.helloPubSub = async (event, context) => {
   const messages = [
     {
       type: "text",
-      text: "本日の上位記事5件です！",
+      text: "本日の上位記事4件です！",
     },
     ...journalsMessages,
   ];
