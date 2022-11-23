@@ -13,7 +13,7 @@ exports.helloPubSub = async (event, context) => {
   const journalsMessages = journals.map((journal) => {
     return {
       type: "text",
-      text: "タイトル：" + journal.title + "URL:" + journal.url,
+      text: "タイトル：" + journal.title + "\nURL:" + journal.url,
     };
   });
   const messages = [
