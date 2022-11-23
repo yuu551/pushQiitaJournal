@@ -1,6 +1,6 @@
 const line = require("@line/bot-sdk");
 require("dotenv").config();
-const accessQiita = require("./accessQiita");
+const getJournals = require("./getJournals");
 
 const config = {
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
@@ -9,7 +9,7 @@ const config = {
 const client = new line.Client(config);
 
 exports.helloPubSub = async (event, context) => {
-  const journals = await accessQiita();
+  const journals = await getJournals();
   const journalsMessages = journals.map((journal) => {
     return {
       type: "text",
