@@ -15,7 +15,7 @@
               "contents": [
                 {
                   "type": "image",
-                  "url": "https://s3-ap-northeast-1.amazonaws.com/qiita-image-store/0/563635/436ff1372bda97307d3438c4e67df5599bf74d6d/large.png?1578460821",
+                  "url": "",
                   "aspectMode": "cover",
                   "size": "full"
                 }
@@ -47,7 +47,7 @@
                     },
                     {
                       "type": "span",
-                      "text": "Docker Desktop の代わりになるかも。AWS が OSS として公開した「Finch」を使ってみた"
+                      "text": ""
                     }
                   ],
                   "size": "sm",
@@ -59,7 +59,7 @@
                   "contents": [
                     {
                       "type": "text",
-                      "text": "25 Stocks  🗂️ 20 Likes 👍",
+                      "text": "",
                       "size": "sm",
                       "color": "#bcbcbc"
                     }
@@ -73,7 +73,7 @@
                   "contents": [
                     {
                       "type": "text",
-                      "text": "create by Yoshitaka KOITABASHI",
+                      "text": "",
                       "size": "sm",
                       "color": "#bcbcbc"
                     }
@@ -93,6 +93,6 @@
     "action": {
       "type": "uri",
       "label": "action",
-      "uri": "http://linecorp.com/"
+      "uri": ""
     }
   }
