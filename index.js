@@ -1,7 +1,7 @@
 const line = require("@line/bot-sdk");
 require("dotenv").config();
 const getJournals = require("./getJournals");
-const makeMessages = require("./makeMessages")
+const makeMessages = require("./makeMessages");
 
 const config = {
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
@@ -11,7 +11,7 @@ const client = new line.Client(config);
 
 exports.helloPubSub = async (event, context) => {
   const journals = await getJournals();
-  const journalsMessages = makeMessages(journals)
+  const journalsMessages = makeMessages(journals);
   const messages = [
     {
       type: "text",
@@ -21,8 +21,8 @@ exports.helloPubSub = async (event, context) => {
   ];
 
   try {
-    const res = await client.broadcast(messages);
-    console.log(res);
+    await client.broadcast(messages);
+    console.log("送信に成功しました！");
   } catch (error) {
     console.log(`エラー: ${error.statusMessage}`);
     console.log(error.originalError.response.data);
