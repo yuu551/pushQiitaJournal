@@ -6,14 +6,24 @@ const makeMessages = (journals) => {
       {},
       JSON.parse(JSON.stringify(baseMessage))
     );
-    //flexMessage.body.contents[0].contents[0].contents[0].url = "https://s3-ap-northeast-1.amazonaws.com/qiita-image-store/0/563635/436ff1372bda97307d3438c4e67df5599bf74d6d/large.png?1578460821"
+    //user_icon
+    flexMessage.body.contents[0].contents[0].contents[0].url =
+      journal.profile_image_url;
+    //title
     flexMessage.body.contents[0].contents[1].contents[0].contents[2].text =
       journal.title;
+    //url
     flexMessage.action.uri = journal.url;
+    //likes and stocks
+    flexMessage.body.contents[0].contents[1].contents[1].contents[0].text = `${journal.stocks_count} Stocks 🗂️ ${journal.likes_count} Likes 👍`;
+    //create_user
+    flexMessage.body.contents[0].contents[1].contents[2].contents[0].text = `create by ${journal.name}`;
     return {
       type: "flex",
       altText: "#",
-      ...flexMessage,
+      contents: {
+        ...flexMessage,
+      },
     };
   });
   return flexMessages;

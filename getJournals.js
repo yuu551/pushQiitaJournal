@@ -2,7 +2,7 @@ const axios = require("axios");
 
 const DEFAULT_PARAMS = {
   PAGE: 1,
-  PER_PAGE: 4,
+  PER_PAGE: 3,
   STOCKS: 10,
 };
 
@@ -18,6 +18,10 @@ const getJournals = async (params = DEFAULT_PARAMS) => {
     return {
       title: journal.title,
       url: journal.url,
+      profile_image_url: journal.user.profile_image_url,
+      likes_count: journal.likes_count,
+      stocks_count: journal.stocks_count,
+      name: journal.user.name,
     };
   });
   return journalList;
