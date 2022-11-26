@@ -1,4 +1,4 @@
-const baseMessage = reqiure("./flexMessage.json");
+const baseMessage = require("./flexMessage.json");
 
 const makeMessages = (journals) => {
   const flexMessages = journals.map((journal) => {
