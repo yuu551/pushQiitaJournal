@@ -1,18 +1,18 @@
-//基本パラメータ
-//後で変更できるように外出ししておく。
-const PAGE = 1;
-const PER_PAGE = 4;
-const STOCKS = 10;
 const axios = require("axios");
 
-const getJournals = async () => {
+const DEFAULT_PARAMS = {
+  PAGE: 1,
+  PER_PAGE: 4,
+  STOCKS: 10,
+};
+
+const getJournals = async (params = DEFAULT_PARAMS) => {
   const targetDate = new Date();
   //今日の日付から一週間前を設定
   targetDate.setDate(targetDate.getDate() - 7);
   //YYYY-MM-DD部分だけ抽出
-  const weekBeforeDay = targetDate.toISOString().split("T")[0];
-  const qiitaURL = `https://qiita.com/api/v2/items?page=${PAGE}&per_page=${PER_PAGE}&query=created:>${weekBeforeDay}+stocks:>${STOCKS}`;
-
+  const dateBeforeWeek = targetDate.toISOString().split("T")[0];
+  const qiitaURL = `https://qiita.com/api/v2/items?page=${params.PAGE}&per_page=${params.PER_PAGE}&query=created:>${dateBeforeWeek}+stocks:>${params.STOCKS}`;
   const result = await axios.get(qiitaURL);
   const journalList = result.data.map((journal) => {
     return {
