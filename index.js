@@ -1,6 +1,7 @@
 const line = require("@line/bot-sdk");
 require("dotenv").config();
 const getJournals = require("./getJournals");
+const makeMessages = require("./makeMessages")
 
 const config = {
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
@@ -10,12 +11,7 @@ const client = new line.Client(config);
 
 exports.helloPubSub = async (event, context) => {
   const journals = await getJournals();
-  const journalsMessages = journals.map((journal) => {
-    return {
-      type: "text",
-      text: "タイトル：" + journal.title + "\nURL:" + journal.url,
-    };
-  });
+  const journalsMessages = makeMessages(journals)
   const messages = [
     {
       type: "text",
