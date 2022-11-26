@@ -2,6 +2,7 @@ const baseMessage = require("./flexMessage.json");
 
 const makeMessages = (journals) => {
   const flexMessages = journals.map((journal) => {
+
     const flexMessage = Object.assign(
       {},
       JSON.parse(JSON.stringify(baseMessage))
@@ -17,7 +18,7 @@ const makeMessages = (journals) => {
     //likes and stocks
     flexMessage.body.contents[0].contents[1].contents[1].contents[0].text = `${journal.stocks_count} Stocks 🗂️ ${journal.likes_count} Likes 👍`;
     //create_user
-    flexMessage.body.contents[0].contents[1].contents[2].contents[0].text = `create by ${journal.name}`;
+    flexMessage.body.contents[0].contents[1].contents[2].contents[0].text = `created by ${journal.name}`;
     return {
       type: "flex",
       altText: "#",
