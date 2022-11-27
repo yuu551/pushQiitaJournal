@@ -8,8 +8,13 @@ const db = new Firestore({
   keyFilename: process.env.KEY_FILE_NAME,
 });
 
+/**
+ * 一度送信したことがある記事を除外して、3件のみ返却する。
+ * @module excludeExistedJournals
+ * @param {List} journals - 取得した記事の一覧
+ */
 const excludeExistedJournals = async (journals) => {
-  //記事の一覧を取得
+  //FireStoreから記事の一覧を取得
   const snapshot = await db.collection("journals").get();
   const existedjournals = snapshot.docs
     .map((doc) => {
@@ -17,6 +22,7 @@ const excludeExistedJournals = async (journals) => {
     })
     .map((journal) => journal.id);
 
+  //記事が0件ならそのまま３件返却する。
   if (existedjournals.length === 0) return journals.slice(0, 3);
 
   return journals
@@ -26,7 +32,11 @@ const excludeExistedJournals = async (journals) => {
     .slice(0, 3);
 };
 
-//
+/**
+ * FireStoreに送信した記事を追加する。
+ * @module writeSendJournals
+ * @param {List} journals - 書き込みたい記事の一覧
+ */
 const writeSendJournals = async (journals) => {
   journals.forEach(async (journal) => [
     await db.collection("journals").add({
