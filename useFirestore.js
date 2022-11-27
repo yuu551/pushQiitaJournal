@@ -11,7 +11,7 @@ const db = new Firestore({
 /**
  * 一度送信したことがある記事を除外して、3件のみ返却する。
  * @module excludeExistedJournals
- * @param {List} journals - 取得した記事の一覧
+ * @param {Array} journals - 取得した記事の一覧
  */
 const excludeExistedJournals = async (journals) => {
   //FireStoreから記事の一覧を取得
@@ -35,7 +35,7 @@ const excludeExistedJournals = async (journals) => {
 /**
  * FireStoreに送信した記事を追加する。
  * @module writeSendJournals
- * @param {List} journals - 書き込みたい記事の一覧
+ * @param {Array} journals - 書き込みたい記事の一覧
  */
 const writeSendJournals = async (journals) => {
   journals.forEach(async (journal) => [

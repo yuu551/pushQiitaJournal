@@ -3,7 +3,7 @@ const baseMessage = require("./flexMessage.json");
 /**
  * 取得した記事を元にFlexMessageに加工
  * @module makeMessages
- * @param {List} journals - 送信したい記事の一覧
+ * @param {Array} journals - 送信したい記事の一覧
  */
 const makeMessages = (journals) => {
   const flexMessages = journals.map((journal) => {
