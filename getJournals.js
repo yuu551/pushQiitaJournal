@@ -2,8 +2,8 @@ const axios = require("axios");
 
 const DEFAULT_PARAMS = {
   PAGE: 1,
-  PER_PAGE: 3,
-  STOCKS: 10,
+  PER_PAGE: 20,
+  STOCKS: 20,
 };
 
 const getJournals = async (params = DEFAULT_PARAMS) => {
@@ -23,6 +23,7 @@ const getJournals = async (params = DEFAULT_PARAMS) => {
         likes_count: journal.likes_count,
         stocks_count: journal.stocks_count,
         name: journal.user.name,
+        id: journal.id
       };
     });
     return journalList;
