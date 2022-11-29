@@ -6,6 +6,11 @@ const DEFAULT_PARAMS = {
   STOCKS: 20,
 };
 
+/**
+ * 記事をQiitaから取得する。
+ * @module getJournals
+ * @param {Object} params - 使用するパラメータオブジェクト
+ */
 const getJournals = async (params = DEFAULT_PARAMS) => {
   const targetDate = new Date();
   //今日の日付から一週間前を設定
